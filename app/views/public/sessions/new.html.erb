@@ -1,63 +1,28 @@
-<h2>Log in</h2>
+<h2>ログイン</h2>
+
+<h6>会員の方はこちらからログイン</h6>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  
-  <div class="field">
-    <h6>名前</h6>
-    <%= f.label :"（性）" %>
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "name" %>
-    <%= f.label :"（名）" %>
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "name" %>
-  </div>
-  
-  <div class="field">
-    <h6>フリガナ</h6>
-    <%= f.label :"（セイ）" %>
-    <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "name" %>
-    <%= f.label :"（メイ） "%>
-    <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "name" %>
-  </div>
-  
+
   <div class="field">
     <h6>メールアドレス</h6>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  
-  <div class="field">
-    <h6>郵便番号（ハイフンなし）</h6>
-    <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
-  </div>
-  
-  <div class="field">
-    <h6>住所</h6>
-    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
-  </div>
-  
-  <div class="field">
-    <h6>電話番号（ハイフンなし）</h6>
-    <%= f.text_field :telephone_number, autofocus: true, autocomplete: "telephone_number" %>
   </div>
 
   <div class="field">
     <h6>パスワード</h6>
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
-  
-  <div class="field">
-    <h6>パスワード（確認用）</h6>
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログイン" %>
   </div>
 <% end %>
 
-<%= render "public/shared/links" %>
+<h6>会員登録がお済みでない方</h6>
+　<div>
+  　  <p>
+  　   <%= link_to "こちら", new_customer_registration_path %>
+  　    から新規登録を行なってください。
+  　 </p>
+　</div>

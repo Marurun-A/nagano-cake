@@ -1,0 +1,9 @@
+<h2>本当に退会しますか？</h2>
+
+<div>
+  <%= link_to "はい",  public_customers_information_withdraw_path(current_customer), class: "btn btn-secondary" %>
+</div>
+
+<div>
+  <%= link_to "いいえ",  public_customer_path(current_customer) %>
+</div>

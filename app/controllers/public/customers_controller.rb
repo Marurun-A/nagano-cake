@@ -1,8 +1,19 @@
 class Public::CustomersController < ApplicationController
-  
+
   def show
-    Customer.find_by(name: 'sign_out')
-    @cutomer = Customer.find(params[:id])
+    @customers = Customer.find(params[:id])
+  end
+  
+  def unsubscribe
+    @customer = current_customer
+  end
+  
+  def withdraw
+    @customer = current_customer
+    @customer.update(is_active: false)
+    
+      
+      redirect_to admin_session_path
   end
 
   def edit
@@ -12,7 +23,7 @@ class Public::CustomersController < ApplicationController
     end
 
       @customer = Customer.find(params[:id])
-    end
+  end
 
   def update
 
@@ -31,7 +42,8 @@ class Public::CustomersController < ApplicationController
   end
 
   private
+
   def customer_params
-    params.require(:customer).permit(:name, :name_kana,)
+    params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :postal_code, :address, :telephone_number, :customer_email)
   end
 end

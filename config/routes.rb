@@ -9,7 +9,7 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
   sessions: "admin/sessions"
 }
 
-roo to: "homes#top"
+
 
   namespace :admin do
     get 'homes/top' => 'homes#top'
@@ -21,6 +21,13 @@ roo to: "homes#top"
   namespace :public do
     root to: "homes#top"
     get 'homes/about' => 'homes#about'
+    
+    # get 'customers/my_page' => 'customers#show'
+    get 'customers/information/unsubscribe' => 'customers#unsubscribe'
+    get 'customers/information/withdraw' => 'customers#withdraw'
+    # get 'customers/information' => 'customers#update'
+    # get 'customers/information/edit' => 'customers#edit'
+    
     resources :items, only: [:index, :show]
     resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
     resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
