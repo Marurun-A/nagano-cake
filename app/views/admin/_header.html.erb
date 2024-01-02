@@ -9,7 +9,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <% if admin_signed_in? %>
                 <li class="nav-item">
-                  <%= link_to "About", admin_items_path %>
+                  <%= link_to "About", public_homes_about_path %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "商品一覧", admin_items_path %>
@@ -22,13 +22,13 @@
                 </li>
               <% else %>
                 <li class="nav-item">
-                  <%= link_to "About", admin_items_path %>
-                </li>
-                <li class="nav-item">
                   <%= link_to "商品一覧", admin_items_path %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "新規登録", new_admin_session_path %>
+                  <%= link_to "会員一覧（仮）", public_homes_about_path %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "注文履歴一覧（仮）", new_admin_session_path %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "ログイン", admin_session_path %>

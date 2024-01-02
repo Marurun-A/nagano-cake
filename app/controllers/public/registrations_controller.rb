@@ -61,7 +61,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # end
 
   def after_sign_in_path_for(resource)
-    public_customers_my_page_path(@customer.id)
+    public_customer_path(@customer.id)
   end
 
   def after_sign_out_path_for(resource)

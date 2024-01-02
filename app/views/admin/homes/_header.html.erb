@@ -9,7 +9,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <% if admin_signed_in? %>
                 <li class="nav-item">
-                  <%= link_to "About", admin_items_path %>
+                  <%= link_to "About", public_homes_about_path %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "商品一覧", admin_items_path %>
@@ -22,7 +22,7 @@
                 </li>
               <% else %>
                 <li class="nav-item">
-                  <%= link_to "About", admin_items_path %>
+                  <%= link_to "About", public_homes_about_path %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "商品一覧", admin_items_path %>
