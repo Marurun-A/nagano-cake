@@ -1,11 +1,4 @@
-
-
-<h2>マイページ</h2>
-
-  <div>
-    <h5>登録情報</h5>
-    <%= link_to "編集する", edit_public_customer_path(current_customer) %>
-  </div>
+<h5>会員詳細</h5>
 
   <table class='table'>
     <thead>
@@ -22,12 +15,10 @@
       <% customer = @customers %>
         <tr>
           <td>
-          <%= customer.first_name %>
-          <%= customer.last_name %>
+          <%= customer.full_name %>
           </td>
           <td>
-          <%= customer.first_name_kana %>
-          <%= customer.last_name_kana %>
+          <%= customer.full_name_kana %>
           </td>
           <td>
           <%= customer.postal_code %>
@@ -41,10 +32,18 @@
           <td>
           <%= customer.email %>
           </td>
+          <td>
+            <%= customer.is_active ? "有効" : "無効" %>
+          </td>
         </tr
     </tbody>
   </table>
 
+
+  <div>
+    <h5>登録情報</h5>
+    <%= link_to "編集する", edit_admin_customer_path %>
+  </div>
   <div>
     <h5>注文履歴</h5>
     <%= link_to "一覧を見る", public_orders_path %>

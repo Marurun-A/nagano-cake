@@ -1,0 +1,29 @@
+<div class='col-md-8 offset-md-1'>
+    <h2>商品詳細</h2>
+  <table class='table table-hover table-inverse'>
+
+    <tbody>
+      <tr>
+        <td>
+            <%= image_tag @item.get_image, size: "100x100" %>
+        </td>
+        <td>
+          <%= link_to admin_item_path(@item.id) do %>
+            <%= @item.name %>
+          <% end %>
+        </td>
+        <td>
+          <%= @item.introduction %>
+        </td>
+        <td>
+          <%= link_to "編集", edit_admin_item_path(@item.id), class: "btn btn-sm btn-success" %>
+        </td>
+        <td>
+          <%= link_to "削除", admin_item_path(@item.id), method: :delete, "data-confirm" => "本当に削除しますか？",  class: "btn btn-sm btn-danger" %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  </div>
+</div>

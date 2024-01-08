@@ -1,0 +1,28 @@
+<h1>商品一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>商品詳細</th>
+      <th></th>
+    </tr>
+  </thead>
+
+　<tbody>
+  <% @items.each do |item| %>
+    <tr>
+      <td>
+        <% if item.image.attached? %>
+          <%= image_tag item.image, size: "100x100" %>
+        <% else %>
+          <%= image_tag 'no_image', size: "100x100" %>
+        <% end %>
+      </td>
+      <td><%= item.name %></td>
+      <td><%= item.introduction %></td>
+      <td><%= link_to "Show", public_item_path(item.id) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>s

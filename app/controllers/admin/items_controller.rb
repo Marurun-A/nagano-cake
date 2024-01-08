@@ -7,11 +7,10 @@ class Admin::ItemsController < ApplicationController
   def create
 
     @item = Item.new(item_params)
-    # @book.user_id = current_user.id
     if @item.save
       flash[:notice] = "You have created item successfully."
-      redirect_to admin_item_path(@item)
-    else @itemss = Item.all
+      redirect_to admin_items_path(@item)
+    else @items = Item.all
       render :index
     end
   end
@@ -45,7 +44,7 @@ class Admin::ItemsController < ApplicationController
     @item = Item.find(params[:id])
       if @item.update(item_params)
         flash[:notice] = "You have updated item successfully."
-        redirect_to admin_item_path(@item)
+        redirect_to admin_items_path(@item)
       else
         render :edit
       end
@@ -54,7 +53,7 @@ class Admin::ItemsController < ApplicationController
   def destroy
     item = Item.find(params[:id])
     item.destroy
-    redirect_to admin_item_path
+    redirect_to admin_items_path
   end
 
 
@@ -62,7 +61,7 @@ class Admin::ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :introduction, :price)
+    params.require(:item).permit(:image, :name, :introduction, :price)
   end
 
 end
