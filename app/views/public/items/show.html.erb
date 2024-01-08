@@ -25,7 +25,8 @@
    <%= f.hidden_field :item_id, value: @item.id %>
    <%= f.hidden_field :customer_id, :value => current_customer.id %>
    <%= f.select :amount,[1,2,3,4,5,6,7,8,9,10],{include_blank: '個数選択'},required:true%>&emsp;
-   <%= f.submit 'カートに入れる' ,class: 'btn btn-success btn-sm'%><% end %>  
+   <%= f.submit 'カートに入れる' ,class: 'btn btn-success btn-sm'%>
+   <% end %>  
   </div>
   
   
