@@ -22,17 +22,19 @@ root to: "public/homes#top"
   namespace :public do
     root to: "homes#top"
     get 'homes/about' => 'homes#about'
-    
+
     # get 'customers/my_page' => 'customers#show'
     get 'customers/information/unsubscribe' => 'customers#unsubscribe'
     get 'customers/information/withdraw' => 'customers#withdraw'
     # get 'customers/information' => 'customers#update'
     # get 'customers/information/edit' => 'customers#edit'
-    
+    delete '/cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all_cart_items'
+
     resources :items, only: [:index, :show]
     resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
-    resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
+    resources :cart_items, only: [:index, :update, :destroy, :create]
     resources :orders, only: [:new, :confirm, :complete, :create, :index, :show]
   end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

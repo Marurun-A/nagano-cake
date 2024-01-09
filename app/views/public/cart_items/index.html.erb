@@ -1,18 +1,24 @@
-<%= link_to 'カートを空にする', destroy_all_item_path, method: :delete, data: { confirm: '本当にカートを空にしますか？' } %>
+<h2>カート内商品</h2>
+  <div>
+    <%= link_to "カートを空にする", public_destroy_all_cart_items_path, method: :delete %>
 
-<table>
-  <thead>
-    <th>単価(税込)</th>
-    <th>小計</th>
-  </thead>
-  <tbody>
-  <% @cart_items.each do |cart_item| %>
-    <tr>
-      <td><%= cart_item.with_tax_price %></td>
-      <td><%= cart_item.subtotal %></td>
-      <td> <%= link_to "削除", public_cart_item_path(cart_item), method: :delete %></td>
-        <%= @total += cart_item.subtotal %>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+      <table>
+        <thead>
+          <th>単価(税込)</th>
+          <th>小計</th>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |cart_item| %>
+            <tr>
+              <td><%= cart_item.with_tax_price %></td>
+              <td><%= cart_item.subtotal %></td>
+              <td> <%= link_to "削除", public_cart_item_path(cart_item.id), method: :delete %></td>
+            </tr>
+
+          <% end %>
+        </tbody>
+      </table>
+      <p>合計金額（税込）<%= @total %>円</p>
+    <%= link_to "買い物を続ける", public_items_path %><br>
+  </div>
+
