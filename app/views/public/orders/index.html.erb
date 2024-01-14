@@ -1,0 +1,26 @@
+<h2>注文履歴</h2>
+
+<div>
+  <table>
+    <thead>
+      <th></th>
+      <th>商品名</th>
+      <th>金額</th>
+      <th>数量</th>
+      <th>小計</th>
+    </thead>
+    <tbody>
+      <% @total = 0 %>
+      <% @orders.each do |order| %>
+      　<%= link_to order_path(order) do %>
+        <tr>
+          <td><%= order.name %></td>
+          <td><%= payment_method %></td>
+          <td><%= order.billing_amount %></td>
+          <td><%= cart_item.subtotal %></td>
+          <td> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

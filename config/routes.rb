@@ -30,6 +30,9 @@ root to: "public/homes#top"
     # get 'customers/information/edit' => 'customers#edit'
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all_cart_items'
 
+    post 'orders/confirm' => 'orders#confirm'
+    get 'orders/complete' => 'orders#complete'
+
     resources :items, only: [:index, :show]
     resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
     resources :cart_items, only: [:index, :update, :destroy, :create]
