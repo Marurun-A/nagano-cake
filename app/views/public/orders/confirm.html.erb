@@ -38,8 +38,20 @@
       </tr>
 </table>
 
+<table>
+    <tr><th>支払い方法</th><td><%= @order.payment_method %></td></tr>
+    <tr><th>お届け先</th>
+      <td>
+      〒<%= current_customer.postal_code %>
+        <%= current_customer.address %><br>
+        <%= current_customer.last_name %><%= current_customer.first_name %>
+      </td>
+    </tr>
+</table>
+
+
 <%= form_with model: @order, url: public_orders_path, method: :post, local: true do |f| %>
-   
+
    <%= f.hidden_field :postal_code, :value =>  @order.postal_code %>
    <%= f.hidden_field :payment_method, :value => @order.payment_method %>
    <%= f.hidden_field :delivery_name, :value => @order.delivery_name %>

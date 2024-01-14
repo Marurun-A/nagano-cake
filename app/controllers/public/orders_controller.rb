@@ -32,10 +32,10 @@ class Public::OrdersController < ApplicationController
         @order.address = current_customer.address
         @order.name = current_customer.full_name
       elsif params[:order][:address_option] == "1"
-        ship = Address.find(params[:order][:member_id])
-        @order.postal_code = ship.postal_code
-        @order.address = ship.address
-        @order.delivery_name = ship.name
+        # ship = Address.find(params[:order][:customer_id])
+        # @order.postal_code = postal_code
+        # @order.address = address
+        # @order.delivery_name = name
       elsif params[:order][:address_option] = "2"
       #   @order.postal_code = params[:order][:postal_code]
       #   @order.address = params[:order][:address]
@@ -52,12 +52,14 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_customer.orders
+    @orders = Order.all
+    @order_details = OrderDetail.find_by(order_id: @orders.first.id)
+    @item_id = @order_details.item_id
   end
 
   def show
     @order = Order.find(params[:id])
-    @ordered_items = @order.ordered_items
+    @order_details = @order.order_details
   end
 
 

@@ -1,26 +1,29 @@
 <h2>注文履歴</h2>
 
-<div>
   <table>
     <thead>
-      <th></th>
-      <th>商品名</th>
-      <th>金額</th>
-      <th>数量</th>
-      <th>小計</th>
+      <th>注文日</th>
+      <th>配送先</th>
+      <th>注文商品</th>
+      <th>支払金額</th>
+      <th>注文詳細</th>
     </thead>
     <tbody>
       <% @total = 0 %>
       <% @orders.each do |order| %>
-      　<%= link_to order_path(order) do %>
         <tr>
-          <td><%= order.name %></td>
-          <td><%= payment_method %></td>
+          <td>
+            <%= order.created_at.strftime("%Y/%m/%d") %>
+          </td>
+          <td>
+            〒<%= order.postal_code %>
+              <%= order.address %><br>
+              <%= order.name %>
+          </td>
+          <td><%= order.order_details.first.item.name %></td>
           <td><%= order.billing_amount %></td>
-          <td><%= cart_item.subtotal %></td>
-          <td> </td>
+          <td><%= link_to "表示する", public_order_path(order) %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-</div>
