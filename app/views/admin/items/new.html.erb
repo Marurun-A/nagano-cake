@@ -1,4 +1,4 @@
-<h2>商品新規登録</h2>
+<h4>商品新規登録</h4>
 
 <% if @item.errors.any? %>
   <%= @item.errors.count %>件のエラーが発生しました
@@ -10,13 +10,13 @@
 <% end %>
 
 <%= form_with model: @item, url: '/admin/items',  method: :post do |f| %>
-  <h4>画像</h4>
+  <h6>商品画像</h6>
   <%= f.file_field :image, accept: "image/*" %>
-  <h4>商品名</h4>
+  <h6>商品名</h6>
   <%= f.text_field :name %>
-  <h4>商品説明</h4>
+  <h6>商品説明</h6>
   <%= f.text_area :introduction %>
-  <h4>価格</h4>
+  <h6>価格</h6>
   <%= f.text_field :price %>
   <%= f.submit '新規登録' %>
 <% end %>

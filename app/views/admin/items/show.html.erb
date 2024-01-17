@@ -1,12 +1,17 @@
 <div class='col-md-8 offset-md-1'>
-    <h2>商品詳細</h2>
+    <h4>商品詳細</h4>
   <table class='table table-hover table-inverse'>
-
+    <%= image_tag @item.get_image, size: "100x100" %>
     <tbody>
+      <thead>
+        <tr>
+          <th>商品名</th>
+          <th>商品説明</th>
+          <th>税抜価格（税込価格）</th>
+          <th></th>
+        </tr>
+      </thead>
       <tr>
-        <td>
-            <%= image_tag @item.get_image, size: "100x100" %>
-        </td>
         <td>
           <%= link_to admin_item_path(@item.id) do %>
             <%= @item.name %>
@@ -15,6 +20,10 @@
         <td>
           <%= @item.introduction %>
         </td>
+        <td>
+          <%= @item.price %> (<%= @item.price* (1 + 0.08)  %>)
+        </td>
+
         <td>
           <%= link_to "編集", edit_admin_item_path(@item.id), class: "btn btn-sm btn-success" %>
         </td>

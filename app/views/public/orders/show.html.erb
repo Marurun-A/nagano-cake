@@ -25,10 +25,12 @@
   <h5>請求情報</h5>
   <table>
     <thead>
-      <% @total = 0 %>
-
       <tr>
         <th>商品合計</th>
+          <% @total = 0 %>
+          <% @order_details.each do |order_detail| %>
+          <% @total += order_detail.subtotal %>
+          <% end %>
         <td><%= @total %>円</td>
       </tr>
       <tr>
@@ -52,6 +54,7 @@
       <th>数量</th>
       <th>小計</th>
     </thead>
+    <% @total = 0 %>
     <% @order_details.each do |order_detail| %>
     <tbody>
     <td><%= order_detail.item.name %></td>
@@ -59,5 +62,6 @@
     <td><%= order_detail.quantity %></td>
     <td><%= order_detail.subtotal %></td>
     </tbody>
+    <% @total += order_detail.subtotal %>
     <% end %>
   </table>

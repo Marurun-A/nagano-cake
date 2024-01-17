@@ -1,19 +1,24 @@
-<h5>会員詳細</h5>
+<h4>会員詳細</h4>
 
   <table class='table'>
     <thead>
       <tr>
+        <th>会員ID</th>
         <th>氏名</th>
-        <th>カナ</th>
+        <th>フリガナ</th>
         <th>郵便番号</th>
         <th>住所</th>
         <th>電話番号</th>
         <th>メールアドレス</th>
+        <th>会員ステータス</th>
       </tr>
     </thead>
     <tbody>
       <% customer = @customers %>
         <tr>
+          <td>
+          <%= customer.id %>
+          </td>
           <td>
           <%= customer.full_name %>
           </td>

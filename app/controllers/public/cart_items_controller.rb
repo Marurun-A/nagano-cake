@@ -20,18 +20,17 @@ class Public::CartItemsController < ApplicationController
   end
 
   def update
-
-    cart_item = CartItem.find(params[:id])
-    unless cart_item.customer_id == current_customer.id
+      @cart_item = CartItem.find(params[:id])
+    unless @cart_item.customer_id == current_customer.id
       redirect_to public_items_path
+      return
     end
 
-    @cart_item = CartItem.find(params[:id])
-      if @cart_item.update(cart_item_params)
-        redirect_to public_cart_item_path(@cart_item.id)
-      else
-        render :index
-      end
+    if @cart_item.update(amount: params[:amount].to_i)
+      redirect_to public_cart_items_path
+    else
+      redirect_to public_items_path
+    end
   end
 
   def destroy

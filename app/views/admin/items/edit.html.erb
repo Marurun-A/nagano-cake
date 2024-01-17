@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h1>商品情報編集</h1>
-      
+      <h4>商品編集</h4>
+
       <% if @item.errors.any? %>
         <%= @item.errors.count %>errors prohibited this item from being saved:
         <ul>
@@ -11,26 +11,31 @@
           <% end %>
         </ul>
       <% end %>
-      
+
       <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
-      
+
         <div class="form-grop mt-2">
-          <h4>商品名</h4>
+           <h6>商品画像</h6>
+            <%= f.file_field :image, accept: "image/*" %>
+        </div>
+
+        <div class="form-grop mt-2">
+          <h6>商品名</h6>
           <%= f.text_field :name, class: "form-control item_name" %>
         </div>
-        
+
         <div class="form-grop mt-2">
-          <h4>商品情報</h4>
+          <h6>商品説明</h6>
           <%= f.text_area :introduction, class: "form-control admin_item_introduction" %>
         </div>
-      
+
         <div class="form-grop mt-2">
-          <%= f.submit '更新', class: "btn btn-success" %>
+          <h6>税抜価格</h6>
+          <%= f.text_field :price, class: "form-control admin_item_introduction" %>
         </div>
-        <div class="mt-2">
-          <%= link_to "Show", admin_item_path(@item.id) %>
-          |
-          <a href="/admin/items">Back</a>
+
+        <div class="form-grop mt-2">
+          <%= f.submit '変更を保存', class: "btn btn-success" %>
         </div>
       <% end %>
     </div>
