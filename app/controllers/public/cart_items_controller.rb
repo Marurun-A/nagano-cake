@@ -26,7 +26,7 @@ class Public::CartItemsController < ApplicationController
       return
     end
 
-    if @cart_item.update(amount: params[:amount].to_i)
+    if @cart_item.update(amount: params[:cart_item][:amount].to_i)
       redirect_to public_cart_items_path
     else
       redirect_to public_items_path
