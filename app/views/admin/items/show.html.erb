@@ -21,7 +21,7 @@
           <%= @item.introduction %>
         </td>
         <td>
-          <%= @item.price %> (<%= @item.price* (1 + 0.1)  %>)
+          <%= @item.price %> (<%= @item.with_tax_price %>)
         </td>
 
         <td>

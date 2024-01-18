@@ -41,7 +41,7 @@ class Public::CartItemsController < ApplicationController
 
   def destroy_all
     CartItem.destroy_all
-    redirect_to public_items_path
+    redirect_to public_cart_items_path
   end
 
   private

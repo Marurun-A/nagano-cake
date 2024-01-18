@@ -52,7 +52,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
+    @orders = Order.where(customer_id: current_customer.id)
     @order_details = OrderDetail.find_by(order_id: @orders.first.id)
     @item_id = @order_details.item_id
   end

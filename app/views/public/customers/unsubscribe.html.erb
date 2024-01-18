@@ -5,7 +5,7 @@
 <p>退会する場合は、「退会する」をクリックしてください。</p>
 
 <div>
-  <%= link_to "退会する",  public_customers_information_withdraw_path(current_customer), class: "btn btn-secondary" %>
+  <%= link_to "退会する",  public_customers_information_withdraw_path(current_customer),  "data-confirm" => "本当に退会しますか？",class: "btn btn-secondary" %>
 </div>
 
 <div>

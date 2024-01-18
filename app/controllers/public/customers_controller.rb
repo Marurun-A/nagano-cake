@@ -3,17 +3,19 @@ class Public::CustomersController < ApplicationController
   def show
     @customers = Customer.find(params[:id])
   end
-  
+
   def unsubscribe
     @customer = current_customer
+
   end
-  
+
   def withdraw
     @customer = current_customer
     @customer.update(is_active: false)
-    
-      
-      redirect_to admin_session_path
+    sign_out
+
+
+      redirect_to public_root_path
   end
 
   def edit
