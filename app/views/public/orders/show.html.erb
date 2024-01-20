@@ -17,7 +17,7 @@
               <%= @order.address %><br>
               <%= @order.delivery_name %>
           </td>
-          <td><%= @order.payment_method %></td>
+          <td><%= payment_method_label(@order.payment_method) %></td>
         </tr>
     </tbody>
   </table>

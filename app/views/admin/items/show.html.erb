@@ -27,9 +27,7 @@
         <td>
           <%= link_to "編集", edit_admin_item_path(@item.id), class: "btn btn-sm btn-success" %>
         </td>
-        <td>
-          <%= link_to "削除", admin_item_path(@item.id), method: :delete, "data-confirm" => "本当に削除しますか？",  class: "btn btn-sm btn-danger" %>
-        </td>
+
       </tr>
     </tbody>
   </table>

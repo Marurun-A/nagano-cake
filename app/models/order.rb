@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   enum payment_method: { credit_card: 0, transfer: 1 }
- has_many :items, through: :cart_items
+# has_many :items, through: :cart_items
  has_many :order_details
  belongs_to :customer
 
@@ -16,6 +16,7 @@ class Order < ApplicationRecord
   def name
     @name
   end
+
 
 
 

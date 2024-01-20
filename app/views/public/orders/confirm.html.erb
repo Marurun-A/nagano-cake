@@ -39,7 +39,8 @@
 </table>
 
 <table>
-    <tr><th>支払い方法</th><td><%= @order.payment_method %></td></tr>
+    <tr><th>支払い方法</th>
+    <td><%= payment_method_label(@order.payment_method) %></td></tr>
     <tr><th>お届け先</th>
       <td>
       〒<%= current_customer.postal_code %>

@@ -6,6 +6,7 @@ class Admin::HomesController < ApplicationController
     @order_details = OrderDetail.all
     @item_id = @order_details.first.item_id
     @order_id = @order_details.first.order_id
+    @customer_id = @orders.first.customer_id
   end
 
 end
