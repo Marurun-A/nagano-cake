@@ -4,9 +4,9 @@ class Admin::HomesController < ApplicationController
   def top
     @orders = Order.all
     @order_details = OrderDetail.all
-    @item_id = @order_details.first.item_id
-    @order_id = @order_details.first.order_id
-    @customer_id = @orders.first.customer_id
+    @item_id = @order_details
+    @order_id = @order_details
+    @customer_id = @orders
   end
 
 end
